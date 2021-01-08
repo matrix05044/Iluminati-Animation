@@ -1,0 +1,58 @@
+@mixin pojawianie($kierunek, $naX, $naY, $stopnie) {
+    @keyframes #{$kierunek} {
+        0% {
+            opacity: 0;
+            transform: translate($naX, $naY);
+            border-radius: 50px;
+        }
+
+        30% {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        80% {
+            transform: rotate($stopnie);
+            border-radius: 0;
+        }
+
+        100% {
+            transform: rotate($stopnie) scaleX(5);
+        }
+    }
+
+}
+
+@mixin styl($ani1, $ani2, $ani3, $deley) {
+    animation: $ani1 2s both $deley,
+        $ani2 2s 3s forwards,
+        $ani3 2s 6s forwards;
+}
+
+@mixin turning($name, $firstT, $length1, $length2, $rotate, $scale) {
+    @keyframes #{$name} {
+        0% {
+            transform: rotate($firstT) scaleX(5);
+        }
+
+        100% {
+            transform: translate($length1, $length2) rotate($rotate) scaleX($scale);
+        }
+    }
+}
+
+@mixin iliminati($name, $x, $y, $x1, $y1, $rotate1, $rotate2, $scale1, $scale2, $opacity) {
+    @keyframes #{$name} {
+        from {
+            transform: translate($x, $y) rotate($rotate1) scaleX($scale1);
+        }
+
+        to {
+            transform: translate($x1, $y1) rotate($rotate2) scaleX($scale2);
+            opacity: $opacity;
+        }
+    }
+
+
+
+}

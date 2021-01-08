@@ -1,0 +1,189 @@
+// .parent {
+//     min-height: 100vh;
+//     min-width: 100vh;
+//     background-color: red;
+//     position: relative;
+
+//     .box {
+//         position: absolute;
+//         width: 200px;
+//         height: 200px;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         background-color: blue;
+//         animation: appear 1s infinite both alternate ease;
+
+
+//     }
+// }
+
+// @keyframes appear {
+//     0% {
+//         background-color: greenyellow;
+//         transform: translateX(-100px);
+//     }
+
+//     100% {
+
+//         border-radius: 25px;
+//         transform: translateX(100px);
+//     }
+// }
+
+
+
+// @keyframes animate {
+//     from {
+//         transform: translateX(0%);
+//     }
+
+//     to {
+//         transform: translateX(-50%)
+//     }
+// }
+
+// .parent {
+//     min-height: 100vh;
+//     min-width: 100vh;
+//     background-color: red;
+//     position: relative;
+
+//     .box {
+//         width: 100px;
+//         height: 100px;
+//         background-color: #fff;
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         transform: scale(0);
+//         border-radius: 50%;
+//         z-index: 1;
+
+//         &::before {
+//             content: "";
+//             display: block;
+//             position: relative;
+//             width: 100vh;
+//             height: 100px;
+//             top: 0;
+//             left: 0;
+//             background-color: white;
+//             animation: animate 5s both;
+//             z-index: -3;
+//         }
+
+//         transition: transform 1s,
+//         border-radius 2s;
+
+
+
+//     }
+
+//     &:hover>.box {
+//         transform: scale(1);
+//         border-radius: 0;
+
+//     }
+// }
+
+
+
+// animacja 3
+
+
+
+
+.parent {
+    position: relative;
+    min-width: 100vh;
+    height: 100vh;
+    background-color: #fff;
+    transition: background-color 2s;
+    animation: change 1s 3s both,
+        change 0.1s 9s both;
+
+    .dot {
+        img {
+            position: absolute;
+            top: 300px;
+            left: 50%;
+            transform: translateX(-55%);
+            animation: xd 2s 8s both;
+        }
+    }
+
+    .box {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        transition: background-color 2s;
+    }
+
+    .top {
+
+        @include styl(top, topTurn, ilumiTop, 0.25s);
+
+    }
+
+    .bottom {
+        left: -100px;
+        @include styl(bot, botTurn, ilumiBot, 0.5s);
+
+    }
+
+    .left {
+        left: -300px;
+        @include styl(left, leftTurn, ilumiLeft, 0.75s);
+    }
+
+    .right {
+        left: 200px;
+        @include styl(right, rightTurn, ilumiRight, 0s);
+
+    }
+
+
+}
+
+@keyframes change {
+    from {
+        filter: invert(0);
+    }
+
+    to {
+        filter: invert(1);
+    }
+}
+
+@keyframes xd {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@include pojawianie(top, 0px, -500px, -60deg);
+@include pojawianie(bot, 0px, 500px, 60deg);
+@include pojawianie(left, 500px, 0px, -60deg);
+@include pojawianie(right, -500px, 0px, 60deg);
+
+@include turning(rightTurn, 60deg, -50px, 0px, 90deg, 5);
+@include turning(leftTurn, -60deg, 50px, 0px, -90deg, 5);
+@include turning(topTurn, -60deg, -25px, 150px, 0deg, 4);
+@include turning(botTurn, 60deg, 25px, -150px, 0deg, 4);
+
+@include iliminati(ilumiTop, -25px, 150px, -25px, 150px, 0deg, 0deg, 4, 8, 1);
+@include iliminati(ilumiBot, 25px, -150px, 25px, -150px, 0deg, 0deg, 4, 4, 0);
+@include iliminati(ilumiLeft, 50px, 0px, 50px, -35px, -90deg, -60deg, 5, 8, 1);
+@include iliminati(ilumiRight, -50px, 0px, -50px, -35px, 90deg, 60deg, 5, 8, 1);
