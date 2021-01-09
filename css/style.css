@@ -225,16 +225,16 @@ th {
   background-color: #fff;
   -webkit-transition: background-color 2s;
   transition: background-color 2s;
-  -webkit-animation: change 1s 3s both, change 0.1s 9s both;
-          animation: change 1s 3s both, change 0.1s 9s both;
+  -webkit-animation: change 1s 3s both, change 0.1s 9s both infinite alternate;
+          animation: change 1s 3s both, change 0.1s 9s both infinite alternate;
 }
 
 .parent .dot img {
   position: absolute;
-  top: 300px;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-55%);
-          transform: translateX(-55%);
+  -webkit-transform: translate(-55%, -45%);
+          transform: translate(-55%, -45%);
   -webkit-animation: xd 2s 8s both;
           animation: xd 2s 8s both;
 }

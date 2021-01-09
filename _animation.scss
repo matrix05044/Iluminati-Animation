@@ -102,14 +102,14 @@
     background-color: #fff;
     transition: background-color 2s;
     animation: change 1s 3s both,
-        change 0.1s 9s both;
+        change 0.1s 9s both infinite alternate;
 
     .dot {
         img {
             position: absolute;
-            top: 300px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-55%);
+            transform: translate(-55%, -45%);
             animation: xd 2s 8s both;
         }
     }
